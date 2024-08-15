@@ -40,7 +40,7 @@
         print ("<h3>" . $rooms['room_type'] ."</h3>");
         print("<p><span>" . $rooms['price_per_night']. "$ </span>/night </p>");
         print("<p> " . $rooms['description'] . "</p>");
-        print("<a href=''><button>book now</button></a>");
+        print("<a href='./reservation.php'><button>book now</button></a>");
         print ("</div>");
     }
     print ("</div>");

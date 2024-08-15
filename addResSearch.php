@@ -9,49 +9,111 @@
     <link rel="stylesheet" href="./styles/form.css">
 </head>
 <body>
-    <?php
-    $pageTitle= "Reservation";
 
-    include "./db/config.php";
-    include "./includes/nav.php";
-    include "./includes/slider.php";
 
-    // search results
+<?php
+include './db/config.php'; // Ensure this path is correct
 
-    $roomType = $_POST['roomType'];
+// Establish a PDO connection
+try {
+    $cnx = new PDO(DSN, USERNAME, PASSWORD);
+    $cnx->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Database connected successfully.<br>";
+} catch (PDOException $e) {
+    die("Could not connect to the database: " . $e->getMessage());
+}
 
-    Try {
-        $cnx = new PDO (DSN,USERNAME,PASSWORD);
+// Enable error reporting
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-    } catch (Exception $e) {
-        // problème de connexion!!
-        // instructions à suivre en cas de 
-        // problème de connexion
-        print("<h3>An error has occured/h3>");
+// Retrieve user input from the form
+$checkin_date = $_POST['checkin_date'] ?? null;
+$checkout_date = $_POST['checkout_date'] ?? null;
+$roomType = $_POST['roomType'] ?? null;
 
-        // var_dump ($e->getMessage());
-        die();
+// Calculate the number of nights
+$startDate = new DateTime($checkin_date);
+$endDate = new DateTime($checkout_date);
+$interval = $startDate->diff($endDate);
+$number_of_nights = $interval->days;
+
+// Ensure user input is valid
+if (!$checkin_date || !$checkout_date || !$roomType || $number_of_nights <= 0) {
+    die("Invalid input data.");
+}
+
+// Print debugging information
+echo "<pre>";
+print_r([
+    'checkin_date' => $checkin_date,
+    'checkout_date' => $checkout_date,
+    'roomType' => $roomType,
+    'number_of_nights' => $number_of_nights
+]);
+echo "</pre>";
+
+// Prepare the SQL query to find available rooms
+$sql_rooms = "SELECT r.id, r.room_number, r.room_type, r.description, r.price_per_night
+    FROM rooms r
+    JOIN (
+        SELECT room_id
+        FROM availability
+        WHERE start_date <= :checkin_date
+        AND end_date >= :checkout_date
+        GROUP BY room_id
+        HAVING COUNT(*) > 0
+    ) a ON r.id = a.room_id
+    WHERE r.room_type = :roomType
+";
+
+try {
+    // Prepare the statement
+    $stmt_rooms = $cnx->prepare($sql_rooms);
+
+    // Bind parameters
+    $stmt_rooms->bindParam(':checkin_date', $checkin_date);
+    $stmt_rooms->bindParam(':checkout_date', $checkout_date);
+    $stmt_rooms->bindParam(':roomType', $roomType);
+
+    // Execute the statement
+    $stmt_rooms->execute();
+
+    // Fetch results
+    $rooms = $stmt_rooms->fetchAll(PDO::FETCH_ASSOC);
+
+    if (empty($rooms)) {
+        echo "No rooms available for the selected dates and type.";
+    } else {
+        foreach ($rooms as $room) {
+            $roomNumber = htmlspecialchars($room['room_number'] ?? '', ENT_QUOTES, 'UTF-8');
+            $roomType = htmlspecialchars($room['room_type'] ?? '', ENT_QUOTES, 'UTF-8');
+            $description = htmlspecialchars($room['description'] ?? '', ENT_QUOTES, 'UTF-8');
+            $pricePerNight = htmlspecialchars($room['price_per_night'] ?? '', ENT_QUOTES, 'UTF-8');
+            $totalCost = $pricePerNight * $number_of_nights;
+            $totalCostFormatted = number_format($totalCost, 2);
+
+            echo "<div class='room'>";
+            echo "<h3>Room Number: " . $roomNumber . "</h3>";
+            echo "<p>Type: " . $roomType . "</p>";
+            echo "<p>Description: " . $description . "</p>";
+            echo "<p>Price per Night: $" . $pricePerNight . "</p>";
+            echo "<p>Total: $" . $totalCostFormatted . "</p>";
+            echo "</div>";
+        }
     }
-    $sql = "SELECT * FROM rooms WHERE room_type LIKE :type";
-    $stmt = $cnx->prepare($sql);
-    $stmt->bindValue(":roomType", $roomType);
+} catch (PDOException $e) {
+    echo "Query failed: " . $e->getMessage();
+}
 
-    $stmt->execute();
-
-    $arrayRooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    print("<ul>");
-    foreach($arrayRooms as $rooms){
-        print ("<img class='affiche' src='./uploads/" . $rooms['img'] . "'>");
-        print("<li> Price per night: " . $rooms['price_per_night'] . "</li>");
-        print("<li> <p>Price per night: " . $rooms['description'] . "</p></li>");
-        print("<button>Book now</button>");
-    }
-
-    print("<ul>");
+// Close the connection
+$cnx = null;
+?>
 
 
 
-    ?>
+
+
 </body>
 </html>

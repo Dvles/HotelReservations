@@ -36,7 +36,7 @@
                 <option value="ensuite">Ensuite</option>
             </select>
 
-       
+<!--      ADD TO NEXT PAGE  
 
             <label for="Name">Name:</label>
             <input type="text" name="name" id="">
@@ -46,7 +46,7 @@
             <input type="text" name="email" id="">
 
             <label for="comments">Notes:</label>
-            <textarea name="description" id="description"></textarea>
+            <textarea name="description" id="description"></textarea> -->
 
 
 
