@@ -1,0 +1,52 @@
+/* GRID STYLING */
+.roomContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.roomGrid {
+    flex: 1 1 calc(33.333% - 40px);
+    max-width: 500px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.roomGrid img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.roomGrid button {
+    background-color: rgb(244, 103, 21);
+    padding: 10px;
+    border: none;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.roomGrid button:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(244, 103, 21);
+}
+
+.roomGrid h3, .roomGrid p {
+    margin: 10px 0;
+    font-size: 13px; /* Specific size for paragraphs */
+}
+
+.roomGrid h3 {
+    font-size: 32px; /* Specific size for headings */
+}
+
+.roomGrid span {
+    font-weight: bold;
+    color: rgb(244, 103, 21);
+    font-size: 18px;
+}

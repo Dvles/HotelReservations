@@ -10,8 +10,8 @@
         <div class="middle">
             <nav>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="./addRoom.php">Rooms</a></li>
+                    <li><a href="./homepage.php">Home</a></li>
+                    <li><a href="./rooms.php">Rooms</a></li>
                     <li><a href="">Eat + Drink</a></li>
                     <li><a href="">Login</a></li>
                 </ul>

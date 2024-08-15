@@ -41,7 +41,7 @@ textarea {
 }
 
 input[type="submit"] {
-    background-color: rgb(244, 151, 21);
+    background-color:rgb(244, 103, 21);
     color: #fff;
     border: none;
     padding: 15px;
@@ -54,7 +54,7 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: black;
-    color: rgb(244, 151, 21);
+    color:rgb(244, 103, 21);
 }
 
 /* Responsive design */

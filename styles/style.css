@@ -1,66 +1,61 @@
+/* GENERAL STYLES */
 * {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
+    box-sizing: border-box;
 }
 
 .box {
-    background-color: #000000; /* Background color for the entire header container */
-    padding: 10px; /* Add some padding if needed */
+    background-color: #000000;
+    padding: 10px;
 }
 
 .flex {
     display: flex;
-    justify-content: space-between; /* Distribute space between left and middle sections */
-    align-items: center; /* Vertically align items in the center */
+    justify-content: space-between;
+    align-items: center;
     color: white;
 }
 
 .left h1 {
-    margin: 0; /* Remove default margin */
-}
-
-.left  {
-    margin: 0; /* Remove default margin */
+    margin: 0;
 }
 
 .middle nav ul {
-    list-style: none; /* Remove default bullet points from list */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    display: flex; /* Display list items in a row */
-    gap: 20px; /* Add space between list items */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
 }
 
 .middle nav ul li a {
-    text-decoration: none; /* Remove underline from links */
-    color: #ffffff; /* Set the text color */
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .middle nav ul li a:hover {
-    color: rgb(244, 151, 21); /* Change link color on hover */
+    color: rgb(244, 103, 21);
 }
 
 .right {
-    margin: 0; /* Ensure no margin */
+    margin: 0;
 }
 
-
 .right button {
-    border: none;
-    background-color: rgb(244, 151, 21);
-    padding: 10px 10px; /* Optional: Add padding to button if needed */
-    color: rgb(0, 0, 0);
-    font-weight: bold;
+    background-color: rgb(244, 103, 21) !important;
+    border: none !important;
+    padding: 10px !important;
+    color: rgb(0, 0, 0) !important;
+    font-weight: bold !important;
 }
 
 .right button:hover {
-    background-color: rgb(0, 0, 0); /* Make button background transparent */
-    border: 1px solid  rgb(244, 151, 21);;
-    color:  rgb(244, 151, 21);
+    background-color: rgb(255, 255, 255) !important;
+    color: rgb(244, 103, 21) !important;
 }
 
-.roomImg img{
+.roomImg img {
     width: 50%;
 }
