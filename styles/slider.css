@@ -1,0 +1,62 @@
+/* slider.css */
+
+/* Slider container */
+.slider {
+    position: relative;
+    width: 100vw; /* Full viewport width */
+    height: 40vh; /* Adjust to your desired height */
+    overflow: hidden; /* Hide overflow to prevent scrollbars */
+    background-color: black;
+}
+
+/* Slides container */
+.slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+/* Slide images */
+.slides img {
+    width: 100vw; /* Each image takes up full viewport width */
+    height: 40vh; /* Adjust to your desired height */
+    object-fit: cover; /* Ensure the image covers the entire area without distortion */
+    flex-shrink: 0; /* Prevent images from shrinking */
+    opacity: 0.65;
+}
+
+/* Navigation buttons */
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for visibility */
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10; /* Ensure buttons are on top of the images */
+}
+
+.prev {
+    left: 10px; /* Adjust positioning as needed */
+}
+
+.next {
+    right: 10px; /* Adjust positioning as needed */
+}
+
+/* Fixed Page Title */
+.page-title {
+    position: absolute;
+    top: 30%;
+    left: 52%;
+    transform: translate(-50%, -50%); /* Center the title both horizontally and vertically */
+    color: rgb(255, 255, 255);
+    padding: 20px 30px; /* Padding for the title */
+    border-radius: 8px;
+    text-align: center;
+    z-index: 20; /* Ensure title is on top of carousel */
+    font-size: 40px;
+}

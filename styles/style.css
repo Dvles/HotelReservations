@@ -1,0 +1,66 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
+}
+
+.box {
+    background-color: #000000; /* Background color for the entire header container */
+    padding: 10px; /* Add some padding if needed */
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between; /* Distribute space between left and middle sections */
+    align-items: center; /* Vertically align items in the center */
+    color: white;
+}
+
+.left h1 {
+    margin: 0; /* Remove default margin */
+}
+
+.left  {
+    margin: 0; /* Remove default margin */
+}
+
+.middle nav ul {
+    list-style: none; /* Remove default bullet points from list */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Display list items in a row */
+    gap: 20px; /* Add space between list items */
+}
+
+.middle nav ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #ffffff; /* Set the text color */
+}
+
+.middle nav ul li a:hover {
+    color: rgb(244, 151, 21); /* Change link color on hover */
+}
+
+.right {
+    margin: 0; /* Ensure no margin */
+}
+
+
+.right button {
+    border: none;
+    background-color: rgb(244, 151, 21);
+    padding: 10px 10px; /* Optional: Add padding to button if needed */
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.right button:hover {
+    background-color: rgb(0, 0, 0); /* Make button background transparent */
+    border: 1px solid  rgb(244, 151, 21);;
+    color:  rgb(244, 151, 21);
+}
+
+.roomImg img{
+    width: 50%;
+}

@@ -1,0 +1,65 @@
+/* Container for form */
+.form-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+form {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns with the second column twice as wide */
+    gap: 20px; /* Space between columns and rows */
+    padding: 5px 10px; /* Padding for form */
+}
+
+/* Label styles */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+/* Input styles */
+input[type="text"],
+input[type="number"],
+textarea,
+select,
+input[type="file"] {
+    width: 100%; /* Full width for inputs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+input[type="submit"] {
+    background-color: rgb(244, 151, 21);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    grid-column: span 2; /* Span both columns */
+}
+
+input[type="submit"]:hover {
+    background-color: black;
+    color: rgb(244, 151, 21);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr; /* Stack all fields in a single column */
+    }
+}
