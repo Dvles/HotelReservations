@@ -55,7 +55,8 @@ print_r([
 echo "</pre>";
 
 // Prepare the SQL query to find available rooms
-$sql_rooms = "SELECT r.id, r.room_number, r.room_type, r.description, r.price_per_night
+$sql_rooms = "
+SELECT r.id, r.room_number, r.room_type, r.description, r.price_per_night
     FROM rooms r
     JOIN (
         SELECT room_id
