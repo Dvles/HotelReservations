@@ -12,6 +12,7 @@
                 <ul>
                     <li><a href="./homepage.php">Home</a></li>
                     <li><a href="./rooms.php">Rooms</a></li>
+                    <li><a href="./rooms.php">Add Room</a></li>
                     <li><a href="">Eat + Drink</a></li>
                     <li><a href="">Login</a></li>
                 </ul>
