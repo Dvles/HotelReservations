@@ -1,19 +1,23 @@
-/* GRID STYLING */
+/* Updated GRID STYLING */
 .roomContainer {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 20px; /* Space between items */
     padding: 20px;
+    justify-content: center; /* Center items horizontally */
 }
 
 .roomGrid {
-    flex: 1 1 calc(33.333% - 40px);
-    max-width: 500px;
+    flex: 1 1 calc(50% - 20px); /* Two columns with spacing */
+    max-width: 500px; /* Maximum width for room grid */
     padding: 15px;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Include padding and border in width */
 }
 
 .roomGrid img {
@@ -25,43 +29,82 @@
 
 .roomGrid button {
     background-color: rgb(244, 103, 21);
+    color: #fff;
     padding: 10px;
     border: none;
-    margin-bottom: 10px;
     font-weight: bold;
-    margin-top: 5px;
+    margin-top: 10px; /* Margin above button */
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
 }
 
 .roomGrid button:hover {
     background-color: rgb(0, 0, 0);
     color: rgb(244, 103, 21);
-    
 }
 
 .roomGrid h3, .roomGrid p {
     margin: 10px 0;
-    font-size: 13px; /* Specific size for paragraphs */
+    font-size: 16px; /* Adjust font size for readability */
 }
 
 .roomGrid h3 {
-    font-size: 32px; /* Specific size for headings */
+    font-size: 24px; /* Adjusted font size */
 }
 
 .roomGrid span {
     font-weight: bold;
     color: rgb(244, 103, 21);
     font-size: 18px;
-    margin-bottom: -25px;
 }
 
 .roomGrid .roomPrice span {
     font-weight: bold;
     color: rgb(244, 103, 21);
     font-size: 18px;
-    margin-bottom: -55px;
 }
 
-.search {
-    display: flex;
+/* FORM STYLING */
+.booking-form-container .roomGrid {
+    flex: 1 1 calc(50% - 20px); /* Two columns with spacing */
+    max-width: 500px; /* Maximum width for form grid */
+    padding: 15px;
+    border: none;
+    box-sizing: border-box; /* Include padding and border in width */
 }
 
+.booking-form-container .roomGrid h2 {
+    margin-top: 0;
+}
+
+.booking-form-container .roomGrid label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.booking-form-container .roomGrid input, 
+.booking-form-container .roomGrid select, 
+.booking-form-container .roomGrid textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.booking-form-container .roomGrid button {
+    background-color: rgb(244, 103, 21);
+    color: #fff;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+}
+
+.booking-form-container .roomGrid button:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(244, 103, 21);
+}
